@@ -41,7 +41,7 @@ public class LanguageModel {
         for (int i = 0; i < windowLength; i++) {
             window +=  in.readChar();
         }
-        while (!(in.isEmpty()_) {
+        while (!(in.isEmpty())) {
             charachter = in.readChar();
             List probs = CharDataMap.get(window);
             if (probs == null){

@@ -108,7 +108,7 @@ public class LanguageModel {
         String gen = window;
         for (int i = 0; i < textLength; i++) {
             List probs = CharDataMap.get(window);
-            
+
             if(probs != null){
                 char newC = getRandomChar(probs);
                 gen+= newC;
@@ -133,6 +133,18 @@ public class LanguageModel {
 	}
 
     public static void main(String[] args) {
-		// Your code goes here
+    // Create a new language model with a window length of 3
+    LanguageModel model = new LanguageModel(3);
+
+    // Train the model on a text file
+    //model.train(fileName);
+
+    // Generate random text
+    String generatedText = model.generate("initial text", 100);
+
+    // Print the generated text
+    System.out.println(generatedText);
+}
+
     }
 }

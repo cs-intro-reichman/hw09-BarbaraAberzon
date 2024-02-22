@@ -41,7 +41,7 @@ public class LanguageModel {
         for (int i = 0; i < windowLength; i++) {
             window +=  in.readChar();
         }
-        while (!in.isEmpty()) {
+        while (!(in.isEmpty()_) {
             charachter = in.readChar();
             List probs = CharDataMap.get(window);
             if (probs == null){
@@ -72,7 +72,7 @@ public class LanguageModel {
   
         CharData prev = first;
         CharData current = null;
-          for (int j = 0 ; j < sizeP ; j++) {
+          for (int j = 1 ; j < probs.getSize() ; j++) {
            current = probs.get(j);
            double x = current.count / (double)charsNum;
            current.p = x;
@@ -84,14 +84,15 @@ public class LanguageModel {
     // Returns a random character from the given probabilities list.
 	public char getRandomChar(List probs) {
 		double random = randomGenerator.nextDouble();
+        int listS = probs.getSize();
         
-        for (int i = 0; i < probs.getSize(); i++) {
+        for (int i = 0; i < listS; i++) {
             CharData currentCharData = probs.get(i);
             if (currentCharData.cp > random) {
                 return  currentCharData.chr;
             }
         }
-        return probs.get(probs.getSize() - 1).chr;
+        return probs.get(listS -1).chr;
 	}
 	
 
@@ -113,7 +114,7 @@ public class LanguageModel {
 
             if(probs != null){
                 char newC = getRandomChar(probs);
-                gen+= newC;
+                gen += newC;
                 window = gen.substring(gen.length() - windowLength);
             }
             else {

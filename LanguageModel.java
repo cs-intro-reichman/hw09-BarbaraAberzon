@@ -70,7 +70,7 @@ public class LanguageModel {
   
         CharData prev = first;
         CharData current = null;
-          for (int j = 0 ; i < probs.getSize(); j++) {
+          for (int j = 0 ; j < probs.getSize(); j++) {
            current = probs.get(j);
            double x = current.count / (double)charsNum;
            current.p = x;
@@ -120,7 +120,7 @@ public class LanguageModel {
         }
         return gen;
 	}
-	}
+	
 
     /** Returns a string representing the map of this language model. */
 	public String toString() {
@@ -147,4 +147,4 @@ public class LanguageModel {
 }
 
     }
-}
+
